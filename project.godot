@@ -17,9 +17,7 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=4
-window/size/resizable=false
-window/size/borderless=true
+window/size/mode=2
 
 [input]
 
@@ -53,3 +51,4 @@ move_down={
 
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
+2d/snap/snap_2d_transforms_to_pixel=true
