@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c2mupxw64f2rx"]
+
+[node name="Platformer" type="Node2D"]
