@@ -1,190 +1,30 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0bbkquixj8d4"]
+[gd_scene load_steps=5 format=3 uid="uid://cnn37iymtrr0g"]
 
 [ext_resource type="Script" path="res://ressources/scripts/player_movements.gd" id="1_spfi7"]
 [ext_resource type="Texture2D" uid="uid://dbn1w8mtoy3tb" path="res://ressources/images/sprite.png" id="2_a51ys"]
-[ext_resource type="Script" path="res://ressources/scripts/player_camera.gd" id="3_od2p4"]
-[ext_resource type="Shader" path="res://ressources/scripts/crt.gdshader" id="4_1jv1s"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bd5nt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xov3j"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(576, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hshe"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(608, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2dbh"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(640, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tr3i4"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(672, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj062"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1gsje"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(224, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ofq0"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2otgn"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rn32k"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(448, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pp4x7"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(480, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qe10y"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(512, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6n7og"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(544, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqxmh"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0t1tj"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bnmc3"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1nm3"]
-atlas = SubResource("CompressedTexture2D_bd5nt")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7k38w"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov4h3"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xov3j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hshe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2dbh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tr3i4")
-}],
-"loop": true,
-"name": &"climb",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_a51ys")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aj062")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1gsje")
-}],
-"loop": true,
-"name": &"jump_end",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ofq0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2otgn")
-}],
-"loop": true,
-"name": &"jump_start",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rn32k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pp4x7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qe10y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6n7og")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sqxmh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0t1tj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bnmc3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j1nm3")
-}],
-"loop": true,
-"name": &"walk",
+"name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4t82"]
 size = Vector2(29, 53)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq1vb"]
-shader = ExtResource("4_1jv1s")
-shader_parameter/resolution = Vector2(320, 180)
-shader_parameter/scan_line_amount = 1.0
-shader_parameter/warp_amount = 0.1
-shader_parameter/noise_amount = 0.03
-shader_parameter/interference_amount = 0.2
-shader_parameter/grille_amount = 0.1
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.6
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.3
-shader_parameter/roll_speed = 1.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1, 8)
 collision_mask = 2
-script = ExtResource("1_spfi7")
-speed = 150.0
+// script = ExtResource("1_spfi7")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)
-sprite_frames = SubResource("SpriteFrames_7k38w")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_ov4h3")
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -27.5)
@@ -195,19 +35,3 @@ debug_color = Color(0.670588, 0.796078, 0.619608, 0.372549)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
-script = ExtResource("3_od2p4")
-
-[node name="ShadeerCanvas" type="CanvasLayer" parent="Camera2D"]
-visible = false
-
-[node name="ShaderRect" type="ColorRect" parent="Camera2D/ShadeerCanvas"]
-visible = false
-material = SubResource("ShaderMaterial_qq1vb")
-clip_contents = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
