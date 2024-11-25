@@ -87,8 +87,7 @@ script = ExtResource("1_1bm1i")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)
 sprite_frames = SubResource("SpriteFrames_ov4h3")
-animation = &"walking"
-frame_progress = 0.574809
+animation = &"idle"
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -27.5)
