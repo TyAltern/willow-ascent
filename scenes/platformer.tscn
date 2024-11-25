@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://c1fbp8f78yhl4"]
+[gd_scene load_steps=9 format=4 uid="uid://c1fbp8f78yhl4"]
 
 [ext_resource type="Texture2D" uid="uid://umkp27l3km5s" path="res://ressources/tilesheets/props.png" id="2_8e8o0"]
 [ext_resource type="Texture2D" uid="uid://dyogwnl2dtbbr" path="res://ressources/tilesheets/tiles.png" id="3_j5rwi"]
 [ext_resource type="PackedScene" uid="uid://cnn37iymtrr0g" path="res://scenes/player.tscn" id="4_ha0th"]
-[ext_resource type="Script" path="res://ressources/scripts/player_movements.gd" id="4_ik27n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucdbc"]
 texture = ExtResource("2_8e8o0")
@@ -379,7 +378,6 @@ tile_map_data = PackedByteArray("AAD//wIAAwACAAEAAAAAAAIAAwABAAEAAAAAAAMAAwAKAAE
 tile_set = SubResource("TileSet_cpcsr")
 
 [node name="Player" parent="." instance=ExtResource("4_ha0th")]
-script = ExtResource("4_ik27n")
 
 [node name="FallingArea" type="Area2D" parent="."]
 
@@ -387,5 +385,3 @@ script = ExtResource("4_ik27n")
 position = Vector2(500.5, 391.5)
 shape = SubResource("RectangleShape2D_eeu6k")
 debug_color = Color(0.560784, 0.286275, 0.486275, 0.439216)
-
-[connection signal="body_entered" from="FallingArea" to="Player" method="tp_back"]

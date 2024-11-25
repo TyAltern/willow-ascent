@@ -27,10 +27,15 @@ func _physics_process(delta: float) -> void:
 		
 	if direction:
 		velocity.x = direction * speed
-		if direction:
-			$PlayerSprite.flip_h = direction < 0
+		$PlayerSprite.flip_h = direction < 0
+		if is_on_floor():
+			$PlayerSprite.play("walking")
+			$PlayerSprite.speed_scale = 1
+		else:
+			$PlayerSprite.speed_scale = 0.2
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		$PlayerSprite.play("idle")
 
 	move_and_slide()
 
