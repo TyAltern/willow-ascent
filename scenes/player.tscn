@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnn37iymtrr0g"]
+[gd_scene load_steps=4 format=3 uid="uid://cnn37iymtrr0g"]
 
-[ext_resource type="Script" path="res://ressources/scripts/player_movements.gd" id="1_spfi7"]
 [ext_resource type="Texture2D" uid="uid://dbn1w8mtoy3tb" path="res://ressources/images/sprite.png" id="2_a51ys"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov4h3"]
@@ -20,7 +19,6 @@ size = Vector2(29, 53)
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1, 8)
 collision_mask = 2
-// script = ExtResource("1_spfi7")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)
