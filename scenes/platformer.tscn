@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyogwnl2dtbbr" path="res://ressources/tilesheets/tiles.png" id="3_j5rwi"]
 [ext_resource type="PackedScene" uid="uid://cnn37iymtrr0g" path="res://scenes/player.tscn" id="4_ha0th"]
 [ext_resource type="Texture2D" uid="uid://gs5kit0s4oxr" path="res://ressources/images/light.png" id="5_twvda"]
+[ext_resource type="Script" path="res://ressources/scripts/checkpoint.gd" id="6_e0f72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rklpk"]
 texture = ExtResource("1_qxvs0")
@@ -506,9 +507,6 @@ terrain_set_0/terrain_1/name = "floor"
 terrain_set_0/terrain_1/color = Color(0.46875, 0.5, 0.25, 1)
 sources/3 = SubResource("TileSetAtlasSource_6ihla")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeu6k"]
-size = Vector2(3379, 429)
-
 [node name="Platformer" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -527,18 +525,17 @@ tile_map_data = PackedByteArray("AAD//wIAAwACAAEAAAAAAAIAAwABAAEAAAAAAAMAAwAKAAE
 tile_set = SubResource("TileSet_cpcsr")
 
 [node name="Player" parent="." instance=ExtResource("4_ha0th")]
+metadata/checkpoint_coordinates = Vector2(0, 0)
 
-[node name="FallingArea" type="Area2D" parent="."]
-
-[node name="FallingDetector" type="CollisionShape2D" parent="FallingArea"]
-position = Vector2(500.5, 391.5)
-shape = SubResource("RectangleShape2D_eeu6k")
-debug_color = Color(0.560784, 0.286275, 0.486275, 0.439216)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(150, -161)
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(0, -42)
 scale = Vector2(0.755, 0.755)
 energy = 3.45
 shadow_enabled = true
 texture = ExtResource("5_twvda")
 texture_scale = 50.0
+
+[node name="Checkpoint" type="Area2D" parent="."]
+script = ExtResource("6_e0f72")
+bounding_box = Vector2(320, 192)
+coordinates = Vector2(32, -32)
