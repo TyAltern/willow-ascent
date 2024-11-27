@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 
+func _process(delta: float) -> void:
+	$Label.text = str(get_meta("checkpoint_coordinates").x) + str(get_meta("checkpoint_coordinates").y)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

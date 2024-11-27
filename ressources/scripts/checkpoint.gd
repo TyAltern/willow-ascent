@@ -17,6 +17,7 @@ extends Area2D
 		coordinates = value
 		if collision != null:
 			collision.position = coordinates
+@export var respawn_coordinates: Vector2
 
 var collision: CollisionShape2D = null
 
@@ -34,7 +35,7 @@ func _ready() -> void:
 func _on_checkpoint_body_entered(body: Node2D):
 	if body.has_meta("checkpoint_id"):
 		body.set_meta("checkpoint_id", self.name)
-		body.set_meta("heckpoint_coordinates", body.position)
+		body.set_meta("checkpoint_coordinates", respawn_coordinates)
 
 func _on_checkpoint_body_exited(body: Node2D):
 	if body.has_meta("checkpoint_id"):

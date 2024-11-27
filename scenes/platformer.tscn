@@ -413,7 +413,7 @@ texture_region_size = Vector2i(32, 32)
 11:2/0/terrain_set = 0
 11:2/0/terrain = 1
 11:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_r6wmq")
-11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -8, 8, -16, -16, -16, -16, 16, 16, 16)
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -8, 8, -8, 8, -16, -16, -16, -16, 16, 16, 16)
 11:2/0/terrains_peering_bit/right_side = 1
 11:2/0/terrains_peering_bit/bottom_right_corner = 1
 11:2/0/terrains_peering_bit/bottom_side = 1
@@ -525,6 +525,7 @@ tile_map_data = PackedByteArray("AAD//wIAAwACAAEAAAAAAAIAAwABAAEAAAAAAAMAAwAKAAE
 tile_set = SubResource("TileSet_cpcsr")
 
 [node name="Player" parent="." instance=ExtResource("4_ha0th")]
+position = Vector2(0, 8)
 metadata/checkpoint_coordinates = Vector2(0, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
@@ -535,7 +536,38 @@ shadow_enabled = true
 texture = ExtResource("5_twvda")
 texture_scale = 50.0
 
-[node name="Checkpoint" type="Area2D" parent="."]
+[node name="Label" type="Label" parent="Player"]
+offset_left = -17.0
+offset_top = -79.0
+offset_right = 23.0
+offset_bottom = -56.0
+
+[node name="CheckpointHome" type="Area2D" parent="."]
 script = ExtResource("6_e0f72")
-bounding_box = Vector2(320, 192)
-coordinates = Vector2(32, -32)
+bounding_box = Vector2(1184, 224)
+coordinates = Vector2(-400, -48)
+respawn_coordinates = Vector2(0, 8)
+
+[node name="CheckpointPlatforms" type="Area2D" parent="."]
+script = ExtResource("6_e0f72")
+bounding_box = Vector2(576, 384)
+coordinates = Vector2(480, -128)
+respawn_coordinates = Vector2(256, 0)
+
+[node name="CheckpointPlatformsStairway" type="Area2D" parent="."]
+script = ExtResource("6_e0f72")
+bounding_box = Vector2(512, 352)
+coordinates = Vector2(-64, -336)
+respawn_coordinates = Vector2(-64, -248)
+
+[node name="CheckpointStairs" type="Area2D" parent="."]
+script = ExtResource("6_e0f72")
+bounding_box = Vector2(512, 832)
+coordinates = Vector2(-1248, -32)
+respawn_coordinates = Vector2(-1024, -24)
+
+[node name="CheckpointUndergrounds" type="Area2D" parent="."]
+script = ExtResource("6_e0f72")
+bounding_box = Vector2(512, 128)
+coordinates = Vector2(-736, 128)
+respawn_coordinates = Vector2(-928, 136)
