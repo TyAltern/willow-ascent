@@ -83,6 +83,7 @@ size = Vector2(29, 53)
 position = Vector2(1, 8)
 collision_mask = 2
 script = ExtResource("1_1bm1i")
+metadata/checkpoint_id = ""
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)

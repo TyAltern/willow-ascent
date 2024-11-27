@@ -39,5 +39,5 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func tp_back(body: Node2D) -> void:
-	position = Vector2(0, - 1)
+func kill():
+	position = get_meta("checkpoint_coordinates")

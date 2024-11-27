@@ -525,6 +525,7 @@ tile_map_data = PackedByteArray("AAD//wIAAwACAAEAAAAAAAIAAwABAAEAAAAAAAMAAwAKAAE
 tile_set = SubResource("TileSet_cpcsr")
 
 [node name="Player" parent="." instance=ExtResource("4_ha0th")]
+metadata/checkpoint_coordinates = Vector2(0, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(0, -42)
