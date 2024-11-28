@@ -527,6 +527,7 @@ tile_set = SubResource("TileSet_cpcsr")
 [node name="Player" parent="." instance=ExtResource("4_ha0th")]
 position = Vector2(0, 8)
 metadata/checkpoint_coordinates = Vector2(0, 0)
+metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(0, -42)
@@ -543,6 +544,7 @@ offset_right = 23.0
 offset_bottom = -56.0
 
 [node name="CheckpointHome" type="Area2D" parent="."]
+position = Vector2(-1, 0)
 script = ExtResource("6_e0f72")
 bounding_box = Vector2(1184, 224)
 coordinates = Vector2(-400, -48)
