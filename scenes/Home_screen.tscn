@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddnfaxg3i1pkg"]
+[gd_scene load_steps=5 format=3 uid="uid://ddnfaxg3i1pkg"]
 
 [ext_resource type="Script" path="res://ressources/scripts/home_screen.gd" id="1_0k63f"]
-[ext_resource type="Texture2D" uid="uid://cw437t8aox4d4" path="res://ressources/images/Home_Screen.jpeg" id="1_1fvr0"]
+[ext_resource type="PackedScene" uid="uid://c1fbp8f78yhl4" path="res://scenes/platformer.tscn" id="2_m6k23"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ii7jg"]
-texture = ExtResource("1_1fvr0")
+[sub_resource type="CanvasTexture" id="CanvasTexture_3qiun"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6yde2"]
+texture = SubResource("CanvasTexture_3qiun")
+modulate_color = Color(0.196078, 0.286275, 0.243137, 0.709804)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,36 +20,59 @@ script = ExtResource("1_0k63f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Platformer" parent="." instance=ExtResource("2_m6k23")]
+process_mode = 4
+position = Vector2(163, 401)
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -673.0
-offset_top = -394.0
-offset_right = 649.0
-offset_bottom = 393.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ii7jg")
+offset_left = -1405.0
+offset_top = -1678.0
+offset_right = 1758.0
+offset_bottom = 900.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6yde2")
+
+[node name="Play name" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 1359.0
+offset_right = 2411.0
+offset_bottom = 2100.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Willow Ascent
+"
 
 [node name="quit_button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 637.0
-offset_right = 873.0
-offset_bottom = 717.0
+offset_left = 1197.0
+offset_top = 1920.0
+offset_right = 1611.0
+offset_bottom = 2024.0
+theme_override_colors/font_hover_color = Color(1, 1, 0.913725, 1)
+theme_override_font_sizes/font_size = 70
+text = "Quit"
 flat = true
 
 [node name="play_button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 458.0
-offset_top = 286.0
-offset_right = 872.0
-offset_bottom = 372.0
+offset_left = 1197.0
+offset_top = 1580.0
+offset_right = 1611.0
+offset_bottom = 1684.0
+theme_override_colors/font_hover_color = Color(1, 1, 0.913725, 1)
+theme_override_font_sizes/font_size = 70
+text = "Play"
 flat = true
 
 [node name="options_button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 448.0
-offset_right = 881.0
-offset_bottom = 533.0
+offset_left = 1199.0
+offset_top = 1741.0
+offset_right = 1616.0
+offset_bottom = 1845.0
+theme_override_colors/font_hover_color = Color(1, 1, 0.913725, 1)
+theme_override_font_sizes/font_size = 70
+text = "Option"
 flat = true
 
 [connection signal="pressed" from="Panel/quit_button" to="." method="_on_quit_button_pressed"]
