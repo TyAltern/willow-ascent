@@ -12,10 +12,11 @@ var faced_wall = 0
 @onready var cayote_time = cayote_time_max
 
 
-
 func _process(delta: float) -> void:
 	#$Label.text = str(get_meta("checkpoint_coordinates").x) + str(get_meta("checkpoint_coordinates").y)
 	$Label.text =  str(faced_wall)
+  
+  
 	if wall_colliding_ray_cast.is_colliding():
 		print('face')
 		is_facing_wall = true
@@ -26,6 +27,7 @@ func _process(delta: float) -> void:
 	else:
 		is_facing_wall = false
 		faced_wall = 0
+
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

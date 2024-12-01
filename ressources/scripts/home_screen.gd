@@ -25,3 +25,8 @@ func _on_quit_button_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	$PanelContainer.visible = false
 	$HomeScreenMenu.visible = true
+
+
+func _on_username_input_text_changed(new_text: String) -> void:
+	if len(new_text) >= 3 and len(new_text) <= 16 and not " " in new_text:
+		Global.username = new_text
