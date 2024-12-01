@@ -481,7 +481,7 @@ sources/3 = SubResource("TileSetAtlasSource_qyqkp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qqimp"]
 shader = ExtResource("4_q4mqc")
-shader_parameter/lod = 3.0
+shader_parameter/lod = 2.0
 
 [node name="HomeScreen" type="Control"]
 layout_mode = 3
