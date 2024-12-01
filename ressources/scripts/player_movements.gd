@@ -7,9 +7,10 @@ extends CharacterBody2D
 @onready var cayote_time = cayote_time_max
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#$Label.text = str(get_meta("checkpoint_coordinates").x) + str(get_meta("checkpoint_coordinates").y)
-	$Label.text = "cayote time " + str(cayote_time)
+	#$Label.text = "cayote time " + str(cayote_time)
+	$Label.text = Global.username
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -1,9 +1,9 @@
 [gd_scene load_steps=41 format=4 uid="uid://ddnfaxg3i1pkg"]
 
-[ext_resource type="Theme" uid="uid://cb0kyefonkyem" path="res://ressources/themes/willow_ascent_theme.tres" id="1_4oovu"]
-[ext_resource type="Texture2D" uid="uid://dyogwnl2dtbbr" path="res://ressources/tilesheets/tiles.png" id="3_6edsf"]
-[ext_resource type="Script" path="res://ressources/scripts/home_screen.gd" id="4_houep"]
-[ext_resource type="Shader" path="res://ressources/shaders/blur.gdshader" id="4_q4mqc"]
+[ext_resource type="Theme" uid="uid://cb0kyefonkyem" path="res://ressources/themes/willow_ascent_theme.tres" id="1_dj8s5"]
+[ext_resource type="Script" path="res://ressources/scripts/home_screen.gd" id="2_akom2"]
+[ext_resource type="Texture2D" uid="uid://dyogwnl2dtbbr" path="res://ressources/tilesheets/tiles.png" id="3_f6exn"]
+[ext_resource type="Shader" path="res://ressources/shaders/blur.gdshader" id="4_ta22a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hycd8"]
 bg_color = Color(0.196078, 0.286275, 0.243137, 1)
@@ -96,7 +96,7 @@ polygon = PackedVector2Array(8, -16, -16, -16, -16, 16, 16, 16, 16, -8)
 polygon = PackedVector2Array(8, -8, -16, -8, -16, 16, 8, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qyqkp"]
-texture = ExtResource("3_6edsf")
+texture = ExtResource("3_f6exn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -480,7 +480,7 @@ terrain_set_0/terrain_1/color = Color(0.46875, 0.5, 0.25, 1)
 sources/3 = SubResource("TileSetAtlasSource_qyqkp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qqimp"]
-shader = ExtResource("4_q4mqc")
+shader = ExtResource("4_ta22a")
 shader_parameter/lod = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q06f4"]
@@ -504,8 +504,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_4oovu")
-script = ExtResource("4_houep")
+theme = ExtResource("1_dj8s5")
+script = ExtResource("2_akom2")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -530,7 +530,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HomeScreenMenu" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -550,10 +549,16 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="HomeScreenMenu/Buttons"]
+[node name="SinglePlayerButton" type="Button" parent="HomeScreenMenu/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Play"
+text = "SinglePlayer"
+
+[node name="MultiPlayerButton" type="Button" parent="HomeScreenMenu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "MultiPlayer"
 
 [node name="SettingsButton" type="Button" parent="HomeScreenMenu/Buttons"]
 layout_mode = 2
@@ -566,6 +571,7 @@ size_flags_horizontal = 4
 text = "Quit"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -595,7 +601,20 @@ size_flags_horizontal = 0
 shortcut = SubResource("Shortcut_dh1cy")
 text = "Back"
 
-[connection signal="pressed" from="HomeScreenMenu/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="UsernameControls" type="HBoxContainer" parent="PanelContainer/SettingsMenu/GridContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="PanelContainer/SettingsMenu/GridContainer/UsernameControls"]
+layout_mode = 2
+text = "Username: "
+
+[node name="Input" type="LineEdit" parent="PanelContainer/SettingsMenu/GridContainer/UsernameControls"]
+layout_mode = 2
+expand_to_text_length = true
+
+[connection signal="pressed" from="HomeScreenMenu/Buttons/SinglePlayerButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HomeScreenMenu/Buttons/MultiPlayerButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="HomeScreenMenu/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HomeScreenMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PanelContainer/SettingsMenu/GridContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="text_changed" from="PanelContainer/SettingsMenu/GridContainer/UsernameControls/Input" to="." method="_on_username_input_text_changed"]
