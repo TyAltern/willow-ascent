@@ -123,7 +123,7 @@ polygon = PackedVector2Array(8, -16, -16, -16, -16, 16, 16, 16, 16, -8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ctxbp"]
 polygon = PackedVector2Array(8, -8, -16, -8, -16, 16, 8, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ihla"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gio08"]
 texture = ExtResource("3_j5rwi")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -505,7 +505,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "floor"
 terrain_set_0/terrain_1/color = Color(0.46875, 0.5, 0.25, 1)
-sources/3 = SubResource("TileSetAtlasSource_6ihla")
+sources/3 = SubResource("TileSetAtlasSource_gio08")
 
 [node name="Platformer" type="Node2D"]
 
