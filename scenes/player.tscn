@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnn37iymtrr0g"]
+[gd_scene load_steps=15 format=3 uid="uid://cnn37iymtrr0g"]
 
 [ext_resource type="Script" path="res://ressources/scripts/player_movements.gd" id="1_1bm1i"]
 [ext_resource type="Texture2D" uid="uid://bsyokyb7yjqaq" path="res://ressources/tilesheets/sprite_walking.png" id="2_6ilfy"]
 [ext_resource type="Texture2D" uid="uid://dbn1w8mtoy3tb" path="res://ressources/images/sprite.png" id="2_a51ys"]
+[ext_resource type="PackedScene" uid="uid://bgc5t30ekl1la" path="res://ressources/Components/wall_jump.tscn" id="4_kto2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_visrs"]
 atlas = ExtResource("2_6ilfy")
@@ -99,3 +100,12 @@ debug_color = Color(0.670588, 0.796078, 0.619608, 0.372549)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="WallCollidingRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(32, 0)
+collision_mask = 2
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="WallJump" parent="Components" instance=ExtResource("4_kto2a")]

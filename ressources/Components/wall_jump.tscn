@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgc5t30ekl1la"]
+
+[ext_resource type="Script" path="res://ressources/Components/scripts/wall_jump.gd" id="1_fgsqn"]
+
+[node name="WallJump" type="Node2D"]
+script = ExtResource("1_fgsqn")
