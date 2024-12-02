@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx8yvv1vvi0fe"]
+
+[ext_resource type="Script" path="res://scenes/CheckPoints/out_of_bound.gd" id="1_wbn2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glwdj"]
+size = Vector2(32, 32)
+
+[node name="OutOfBound" type="Area2D"]
+script = ExtResource("1_wbn2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_glwdj")
+debug_color = Color(0.850772, 0.301222, 0.565692, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,6 +6,8 @@ var direction: Vector2
 var is_facing_wall: bool = false
 var faced_wall = 0
 
+@onready var checkpoint_coordinate: Vector2 = global_position
+
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 @export var cayote_time_max = 10
@@ -18,7 +20,6 @@ func _process(delta: float) -> void:
   
   
 	if wall_colliding_ray_cast.is_colliding():
-		print('face')
 		is_facing_wall = true
 		if direction.x == -1:
 			faced_wall = -1
@@ -76,5 +77,11 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func kill():
-	position = get_meta("checkpoint_coordinates")
+func save_checkpoint_coordinate(coord:Vector2) -> void:
+	"""Actualise les coordonnées de checkpoint du joueur"""
+	checkpoint_coordinate = coord
+
+
+func tp_back_to_checkpoint() -> void:
+	"""Actualise la position global du joueur à celle des coordonnées de checkpoint du joueur"""
+	global_position = checkpoint_coordinate
